@@ -64,11 +64,29 @@ public class Menu {
 
     private void showTransactions (){
         int i = 1;
+        System.out.println("Transactions:");
         for (Transaction t : user.getTransactions()){
-            System.out.println("Transakcja nr. " + i + " " + t);
+            System.out.println( i + ". " + t);
             i++;
         }
     }
+
+    private CurrencyCode chooseCurrency(){
+        System.out.println("Wybierz walute:");
+        CurrencyCode[] code = CurrencyCode.values();
+        for (int i = 0; i <code.length ; i++) {
+            System.out.println((i+1)+ ". " + code[i]);
+        }
+        int choice = -1;
+        while (choice < 0 || choice > code.length){
+            System.out.println("Wybierz numer od 1 do " + code.length);
+//            choice = Integer.parseInt(scan.nextLine());
+            choice = scan.nextInt();
+        }
+        return code[choice-1];
+    }
+
+
 
     private TransactionCategory chooseCategory() {
         System.out.println("Wybierz kategorie: ");
@@ -78,7 +96,7 @@ public class Menu {
 
         }
         int choice = -1;
-        while (choice < 1 || categories.length< choice){
+        while (choice < 1 ||  choice > categories.length){
             System.out.println("Wybierz numer od 1 do " + categories.length);
 //            choice = Integer.parseInt(scan.nextLine());
             choice = scan.nextInt();
@@ -113,12 +131,13 @@ public class Menu {
             System.out.println("Kwota nieprawidłowa");
             return;
         }
+        scan.nextLine();
 
-        System.out.println("Podaj kategorie: ");
+        CurrencyCode currency = chooseCurrency();
+
         TransactionCategory category = chooseCategory();
 
-        System.out.println("Podaj walute: ");
-        String currency = scan.nextLine();
+
         user.addIncome(value,category,currency);
     }
 
@@ -135,7 +154,7 @@ public class Menu {
         TransactionCategoryExpense category = chooseCategoryExp();
 
         System.out.println("Podaj walute: ");
-        String currency = scan.nextLine();
+        CurrencyCode currency = chooseCurrency();
         user.addExpense(value,category,currency);
     }
 }

@@ -30,7 +30,7 @@ public class User {
         return transactions;
     }
 
-    public void addIncome(double amount, TransactionCategory category, String currency) {
+    public void addIncome(double amount, TransactionCategory category, CurrencyCode currency) {
         try {
             if (amount < 0) {
                 System.out.println("Podales niepoprawna ilość pieniędzy do wpłaty!");
@@ -44,7 +44,7 @@ public class User {
     }
 
 
-    public void addExpense(double amount, TransactionCategoryExpense category, String currency) {
+    public void addExpense(double amount, TransactionCategoryExpense category, CurrencyCode currency) {
         try {
             if (amount < 0) {
                 System.out.println("Podales niepoprawna ilość pieniędzy do dodania expense");
