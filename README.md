@@ -1,4 +1,4 @@
-# Simple Budget Tracker (Java)
+# MoneyTracker (Java)
 
 Lekka, konsolowa aplikacja w Javie do śledzenia przychodów i wydatków oraz monitorowania salda konta.
 
@@ -8,8 +8,6 @@ Lekka, konsolowa aplikacja w Javie do śledzenia przychodów i wydatków oraz mo
 
 * [Wstęp](#wstęp)
 * [Kluczowe Funkcje](#kluczowe-funkcje)
-* [Instalacja i Uruchomienie](#instalacja-i-uruchomienie)
-* [Użycie](#użycie)
 * [Struktura Transakcji](#struktura-transakcji)
 
 ---
@@ -20,46 +18,15 @@ Ten projekt implementuje podstawowy system zarządzania finansami osobistymi (Pe
 
 ### Kluczowe Funkcje
 
-* **Śledzenie Salda:** Bieżący podgląd salda konta (`balance`).
-* **Rejestracja Transakcji:** Dodawanie przychodów (np. `SALARY`, `INVESTMENT`) i wydatków (np. `GROCERIES`, `RENT`).
-* **Obsługa Walut:** Transakcje są rejestrowane z oznaczeniem waluty (`PLN`, `EUR`, `USD`, `JPY`).
-* **Historia:** Wyświetlanie listy wszystkich zarejestrowanych transakcji.
-* **Walidacja:** Blokowanie wydatków, jeśli saldo jest niewystarczające.
+* **Śledzenie Salda:** Bieżący podgląd salda konta (`balance`) aktualizowany po każdej transakcji.
+* **Rejestracja Transakcji:** Dodawanie przychodów (`INCOME`, np. `SALARY`, `INVESTMENT`) oraz wydatków (`EXPENSE`, np. `GROCERIES`, `RENT`).
+* **Historia Transakcji:** Wyświetlanie pełnej listy wszystkich zarejestrowanych operacji finansowych.
+* **Obsługa Walut:** Rejestrowanie transakcji w walutach (`PLN`, `EUR`, `USD`, `JPY`).
+* **Currency Converter:** Wbudowany mechanizm przeliczania walut na `PLN`.
+* **Kategorie jako Enumy:** Wykorzystanie typów `enum` do definiowania kategorii przychodów i wydatków oraz walut.
+* **Obliczenia Statystyczne:** Obliczanie średnich przychodów oraz średnich wydatków.
+* **Walidacja Operacji:** Blokowanie dodania wydatku w przypadku niewystarczającego salda.
 
-
-
-### Instalacja i Uruchomienie
-
-1.  **Sklonuj repozytorium:**
-    ```bash
-    git clone [https://github.com/TWOJ_USERNAME/NAZWA_TWOJEGO_PROJEKTU.git](https://github.com/TWOJ_USERNAME/NAZWA_TWOJEGO_PROJEKTU.git)
-    cd NAZWA_TWOJEGO_PROJEKTU
-    ```
-
-2.  **Kompilacja i Uruchomienie:**
-    * W większości IDE (np. IntelliJ IDEA, gdzie jest to projekt konsolowy), wystarczy otworzyć projekt i uruchomić główną klasę: `Main.java`.
-    * **Z Linii Komend (CLI):**
-        ```bash
-        # Kompilacja wszystkich plików
-        javac *.java
-
-        # Uruchomienie głównej klasy
-        java Main
-        ```
-
-### Użycie
-
-Po uruchomieniu aplikacji, zobaczysz proste menu konsolowe, obsługiwane za pomocą numerów:
-- Dodaj przychod
-- Dodaj wydatek
-- Pokaz saldo
-- Pokaz wszystkie transakcje
-- Wyjdz Wybierz:
-
-- **Przykłady transakcji:**
-
-Transakcje są wyświetlane w formacie:
-`[DATA] | [TYP] | [KWOTA] [WALUTA] | [KATEGORIA]`
 
 ### Struktura Transakcji
 
@@ -72,6 +39,11 @@ Transakcje wykorzystują predefiniowane kategorie i waluty za pomocą typów `en
 | **Przychody** | `TransactionCategory` | `SALARY`, `BONUS`, `INVESTMENT`, `REFUND`, `GIFT` |
 | **Wydatki** | `TransactionCategoryExpense` | `GROCERIES`, `RENT`, `TRANSPORT`, `BILLS`, `ENTERTAINMENT`, itp. |
 
+
+- **Przykłady transakcji:**
+
+Transakcje są wyświetlane w formacie:
+`[DATA] | [TYP] | [KWOTA] [WALUTA] | [KATEGORIA]`
 
 ### Możliwości Rozwoju
 
